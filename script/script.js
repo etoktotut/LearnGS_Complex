@@ -1,9 +1,9 @@
 const num = 266219;
-const num_str = String(num);
+const numStr = String(num);
 let result = 1;
 
-for (let i = 0; i < num_str.length; i++) {
-    result *= num_str[i];
+for (let i = 0; i < numStr.length; i++) {
+    result *= numStr[i];
 }
 console.log(result);
 result = result ** 3;
