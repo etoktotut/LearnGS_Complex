@@ -17,18 +17,29 @@ out2or4(arr);
 console.log("End of Part 1");
 
 const isSimple = (n) => {
-    let result = true;
-    for (let i = n - 1; i >= 1; i--) {
-        if ((n % i === 0) && (i !== 1)) {
-            result = false; break;
-        }
+
+    if (n === 1 || n === 4) {
+        return false;
     }
-    return result;
+
+    if (n === 2 || n === 3) {
+        return true;
+    }
+
+    if (n % 2 === 0 || n % 3 === 0) {
+        return false;
+    }
+
+    for (let k = 3; k <= n / 3 + 1; k += 2) {
+        if (n % k === 0) { return false; }
+    }
+    return true;
 };
 
-for (let num = 1; num <= 100; num++) {
+for (let num = 1; num <= 10000; num++) {
 
     if (isSimple(num)) {
-        console.log('простое', num);
+        console.log('Простое число ' + num + ' делится на 1 и на ' + num + '.');
     }
 }
+
